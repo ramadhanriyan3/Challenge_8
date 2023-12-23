@@ -1,14 +1,14 @@
 import express from "express";
 const router = express.Router();
-const userController = require("./../controller/userController");
-const {
+import userController from "./../controller/userController";
+import {
   authentification,
   superAdminAuth,
-} = require("./../middleware/authController");
+} from "./../middleware/authController";
 
 router.post("/register", userController.memberRegister);
 router.post("/admin/register", superAdminAuth, userController.adminRegister);
 router.post("/login", userController.login);
 router.get("/current-user", authentification, userController.currentUser);
 
-module.exports = router;
+export default router;

@@ -2,14 +2,13 @@ import express, { Express } from "express";
 import knex from "knex";
 import { Model } from "objection";
 import path from "path";
-const cors = require("cors");
-const carRouter = require("./../src/routes/carRoutes");
-const userRouter = require("./../src/routes/userRoutes");
-const YAML = require("yamljs");
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = YAML.load(path.resolve(__dirname, "../openapi.yaml"));
+import cors from "cors";
+import carRouter from "./../src/routes/carRoutes";
+import userRouter from "./../src/routes/userRoutes";
+import YAML from "yamljs";
+import swaggerUi from "swagger-ui-express";
 
-const PORT = 2700;
+const swaggerDocument = YAML.load(path.resolve(__dirname, "../openapi.yaml"));
 
 // database conector
 const app: Express = express();
@@ -31,9 +30,5 @@ app.use("/cars", carRouter);
 app.use("/", userRouter);
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-app.listen(PORT, () => {
-  console.log(`lintening to port ${PORT}`);
-});
 
 export default app;

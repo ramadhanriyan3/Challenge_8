@@ -13,4 +13,4 @@ function encryptPassword(password: string): Promise<string> {
   });
 }
 
-module.exports = { encryptPassword };
+export default encryptPassword;

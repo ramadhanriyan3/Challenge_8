@@ -16,4 +16,4 @@ async function checkPassword(encryptedPassword: string, password: string) {
   });
 }
 
-module.exports = { checkPassword };
+export default checkPassword;

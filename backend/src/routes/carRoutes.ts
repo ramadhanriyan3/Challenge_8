@@ -1,8 +1,7 @@
 import express from "express";
 const router = express.Router();
-const uploadOnMemory = require("./../middleware/uploadOnMemory");
-const carController = require("./../controller/carControllers");
-const { superAdminAuth, adminAuth } = require("./../middleware/authController");
+import uploadOnMemory from "./../middleware/uploadOnMemory";
+import carController from "./../controller/carControllers";
 
 router.get("/", carController.getCars);
 
@@ -18,4 +17,4 @@ router.patch(
 
 router.delete("/:id/delete", carController.deleteCar); //adminAuth
 
-module.exports = router;
+export default router;

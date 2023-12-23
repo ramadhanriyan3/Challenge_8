@@ -1,9 +1,9 @@
-import express, { Express, Request, Response } from "express";
+import { Request, Response } from "express";
 import UserServices from "../services/user";
 import { v4 as uuidv4 } from "uuid";
-const { createToken } = require("./../helper/createJwt");
-const { encryptPassword } = require("./../helper/encryptPassword");
-const { checkPassword } = require("./../helper/checkPassword");
+import createToken from "./../helper/createJwt";
+import encryptPassword from "./../helper/encryptPassword";
+import checkPassword from "./../helper/checkPassword";
 
 // memberRegister
 async function memberRegister(req: Request, res: Response) {
@@ -15,7 +15,7 @@ async function memberRegister(req: Request, res: Response) {
     password: await encryptPassword(body.password),
     role: "member",
   };
-  const registerdUser = await new UserServices().register(userData);
+  await new UserServices().register(userData);
 
   res.status(201).json({
     message: "new user has beed added",
@@ -32,7 +32,7 @@ async function adminRegister(req: Request, res: Response) {
     password: await encryptPassword(body.password),
     role: "admin",
   };
-  const registerdUser = await new UserServices().register(userData);
+  await new UserServices().register(userData);
 
   res.status(201).json({
     message: "new user has beed added",
@@ -70,4 +70,5 @@ async function currentUser(req: Request, res: Response) {
   });
 }
 
-module.exports = { adminRegister, login, memberRegister, currentUser };
+const userControler = { adminRegister, login, memberRegister, currentUser };
+export default userControler;

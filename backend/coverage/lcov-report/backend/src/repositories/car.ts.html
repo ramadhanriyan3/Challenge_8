@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/27</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">59.25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/27</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,27 +95,27 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CarsModel } from "../models/cars";
 import { Request } from "express";
@@ -125,24 +125,24 @@ export default class CarRepositories {
     return await CarsModel.query();
   }
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >getById(req: Request) {</span>
-<span class="cstat-no" title="statement not covered" >    const getId = req.params.id;</span>
-<span class="cstat-no" title="statement not covered" >    return await CarsModel.query().where("id", getId);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async getById(req: Request) {
+    const getId = req.params.id;
+    return await CarsModel.query().where("id", getId);
+  }
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >deleteCar(req: Request) {</span>
-<span class="cstat-no" title="statement not covered" >    const getId = req.params.id;</span>
-<span class="cstat-no" title="statement not covered" >    return await CarsModel.query().where("id", getId).del();</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async deleteCar(req: Request) {
+    const getId = req.params.id;
+    return await CarsModel.query().where("id", getId).del();
+  }
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >postCar(item: any) {</span>
-<span class="cstat-no" title="statement not covered" >    return await CarsModel.query().insert(item).returning("*");</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async postCar(item: any) {
+    return await CarsModel.query().insert(item).returning("*");
+  }
 &nbsp;
-  async <span class="fstat-no" title="function not covered" >updateCar(req: Request, item: any) {</span>
-<span class="cstat-no" title="statement not covered" >    const getId = req.params.id;</span>
-<span class="cstat-no" title="statement not covered" >    return await CarsModel.query().where("id", "=", getId).update(item);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  async updateCar(req: Request, item: any) {
+    const getId = req.params.id;
+    return await CarsModel.query().where("id", "=", getId).update(item);
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -151,7 +151,7 @@ export default class CarRepositories {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-21T11:54:51.174Z
+                at 2023-12-22T15:59:51.326Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

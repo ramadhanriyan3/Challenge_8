@@ -3,6 +3,7 @@ import * as jwt from "jsonwebtoken";
 const secretKey = "soSecret";
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     interface Request {
       user?: jwt.JwtPayload;
@@ -10,7 +11,11 @@ declare global {
   }
 }
 
-async function superAdminAuth(req: Request, res: Response, next: NextFunction) {
+export async function superAdminAuth(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     const bearerToken = req.headers.authorization;
     const token = bearerToken!.split("Bearer ")[1];
@@ -31,7 +36,7 @@ async function superAdminAuth(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-async function authentification(
+export async function authentification(
   req: Request,
   res: Response,
   next: NextFunction
@@ -51,7 +56,11 @@ async function authentification(
   }
 }
 
-async function adminAuth(req: Request, res: Response, next: NextFunction) {
+export async function adminAuth(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   try {
     const bearerToken = req.headers.authorization;
     const token = bearerToken!.split("Bearer ")[1];
@@ -73,5 +82,3 @@ async function adminAuth(req: Request, res: Response, next: NextFunction) {
     });
   }
 }
-
-module.exports = { superAdminAuth, authentification, adminAuth };

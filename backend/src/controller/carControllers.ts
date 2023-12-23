@@ -1,11 +1,8 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import CarServices from "../services/car";
 import { v4 as uuidv4 } from "uuid";
-import LogServices from "../services/logHistory";
-const cloudinary = require("./../../cloudinary");
-const uploadOnMemory = require("./../middleware/uploadOnMemory");
 
-const app = express();
+import cloudinary from "./../../cloudinary";
 
 // get Cars
 const getCars = async (req: Request, res: Response) => {
@@ -23,7 +20,6 @@ const getCars = async (req: Request, res: Response) => {
 const getCarById = async (req: Request, res: Response) => {
   const carById = await new CarServices().getById(req);
   if (carById.length) {
-    console.log(carById);
     return res.status(200).json(carById);
   } else {
     return res.status(404).json({
@@ -34,7 +30,6 @@ const getCarById = async (req: Request, res: Response) => {
 
 // dellete car
 const deleteCar = async (req: Request, res: Response) => {
-  const getId = req.params.id;
   // const logData = {
   //   user_id: (req as any).user?.user_id,
   //   car_id: getId,
@@ -42,7 +37,7 @@ const deleteCar = async (req: Request, res: Response) => {
   //   description: `deleting car item with id ${getId}`,
   // };
   // const newLog = await new LogServices().postLog(logData);
-  const deleteData = await new CarServices().deleteCar(req);
+  await new CarServices().deleteCar(req);
   return res.status(202).json({
     status: "Item has been deleted",
   });
@@ -52,8 +47,6 @@ const deleteCar = async (req: Request, res: Response) => {
 const postCar = async (req: Request, res: Response) => {
   try {
     const body = req.body;
-    console.log(body);
-    console.log(req.file);
     if (!req.file) {
       return res.status(400).json({ message: "No image provided" });
     }
@@ -63,7 +56,6 @@ const postCar = async (req: Request, res: Response) => {
     const result = await cloudinary.uploader.upload(file, { timeout: 120000 });
     const model = body.model;
     const rentPerDay = body.rentPerDay;
-
     const image_url = result.url;
     const id = uuidv4();
     const postCar = await new CarServices().postCar({
@@ -107,7 +99,7 @@ const updateCar = async (req: Request, res: Response) => {
     const rentPerDay = body.rentPerDay || undefined;
     const updateData = { model, rentPerDay, image };
     console.log(body);
-    const updateCar = await new CarServices().updateCar(req, updateData);
+    await new CarServices().updateCar(req, updateData);
     // const logData = {
     //   user_id: (req as any).user?.user_id,
     //   car_id: reqId,
@@ -121,7 +113,7 @@ const updateCar = async (req: Request, res: Response) => {
     const model = body.model || undefined;
     const rentPerDay = body.rentPerDay || undefined;
     const updateData = { model, rentPerDay };
-    const updateCar = await new CarServices().updateCar(req, updateData);
+    await new CarServices().updateCar(req, updateData);
     // const logData = {
     //   user_id: (req as any).user?.user_id,
     //   car_id: reqId,
@@ -133,4 +125,6 @@ const updateCar = async (req: Request, res: Response) => {
   }
 };
 
-module.exports = { getCars, getCarById, deleteCar, postCar, updateCar };
+const carController = { getCars, getCarById, deleteCar, postCar, updateCar };
+
+export default carController;
