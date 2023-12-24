@@ -8,7 +8,7 @@ function FaqAccordion() {
         <Col md={4}>
           <h3 className="heading-bold pb-2">Frequently Asked Question</h3>
           <p className="body-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Lorem ipsum dolor sit amet, consecetur adipiscing elit
           </p>
         </Col>
         <Col md={7} className="offset-md-1">
@@ -17,7 +17,7 @@ function FaqAccordion() {
               <Accordion.Header>Frequently Asked Question</Accordion.Header>
               <Accordion.Body>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                eiusmod tempor incididunt ut labore et magna aliqua.
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1" className="mb-3">

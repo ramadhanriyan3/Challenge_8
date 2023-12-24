@@ -4,7 +4,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Image } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import MyButton from "../button/button";
 import { css, cx } from "@emotion/css";
 import Link from "next/link";
 
@@ -70,7 +69,6 @@ function MyNavbar({ children }: navbarProp) {
                     FAQ
                   </Link>
                   {children}
-                  {/* <MyButton value={"register"} handlerOnClick={() => {}} /> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
