@@ -12,7 +12,7 @@ import axios from "axios";
 import CarsWrapper from "../carsWraper/carsWrapper";
 import PickDate from "./filterItem/datePick/datePick";
 
-const url = "http://localhost:2700/cars";
+const url = "https://binar-rent-backend.fly.dev/cars";
 
 function FilterBar() {
   const [cars, setCars] = useState<any>({});

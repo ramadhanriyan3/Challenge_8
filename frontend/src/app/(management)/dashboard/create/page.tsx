@@ -9,7 +9,10 @@ function RenderPage() {
     <>
       <PageWraper buttonType={"button"}>
         <BreadCrumb lastStep="Add New Car" />
-        <FormPage apiAction="http://localhost:2700/cars/create" method="post" />
+        <FormPage
+          apiAction="https://binar-rent-backend.fly.dev/cars/create"
+          method="post"
+        />
       </PageWraper>
     </>
   );

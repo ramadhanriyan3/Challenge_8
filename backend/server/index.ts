@@ -13,15 +13,18 @@ const swaggerDocument = YAML.load(path.resolve(__dirname, "../openapi.yaml"));
 // database conector
 const app: Express = express();
 const knexInstance = knex({
-  client: "postgresql",
+  client: "pg",
   connection: {
-    database: "challenge_7",
+    host: "rbinar-rent-db.internal",
+    port: 5432,
     user: "postgres",
-    password: "kalianda23",
+    password: "CMV7l6P5iZaL6hq",
+    database: "postgres",
   },
 });
 Model.knex(knexInstance);
 // middleware
+
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

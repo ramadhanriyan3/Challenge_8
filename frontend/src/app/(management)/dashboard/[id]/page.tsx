@@ -9,7 +9,7 @@ function RenderPage({ params }: { params: { id: string } }) {
       <PageWraper buttonType={"button"}>
         <BreadCrumb lastStep="Add New Car" />
         <FormPage
-          apiAction={`http://localhost:2700/cars/${params.id}/update`}
+          apiAction={`https://binar-rent-backend.fly.dev/cars/${params.id}/update`}
           method="patch"
         />
       </PageWraper>

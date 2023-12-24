@@ -5,6 +5,12 @@ import carController from "./../controller/carControllers";
 
 router.get("/", carController.getCars);
 
+router.get("/asal", (req, res) => {
+  return res.status(200).json({
+    message: "Car list not found",
+  });
+});
+
 router.get("/:id", carController.getCarById);
 
 router.post("/create", uploadOnMemory.single("picture"), carController.postCar);

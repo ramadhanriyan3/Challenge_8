@@ -18,7 +18,7 @@ function Login() {
         password: e.target.password.value,
       };
       const response = await axios.post(
-        "http://localhost:2700/login",
+        "https://binar-rent-backend.fly.dev/login",
         formData
       );
       const jwtToken = response.data.token;

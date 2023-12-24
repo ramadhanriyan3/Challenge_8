@@ -2,21 +2,24 @@
 
 module.exports = {
   development: {
-    client: "postgresql",
+    client: "pg",
     connection: {
-      database: "challenge_7",
+      host: "rbinar-rent-db.internal",
+      port: 5432,
       user: "postgres",
-      password: "kalianda23",
-      // filename: "./dev.sqlite3"
+      password: "CMV7l6P5iZaL6hq",
+      database: "postgres",
     },
   },
 
   staging: {
-    client: "postgresql",
+    client: "pg",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      host: "rbinar-rent-db.internal",
+      port: 5432,
+      user: "postgres",
+      password: "CMV7l6P5iZaL6hq",
+      database: "postgres",
     },
     pool: {
       min: 2,
@@ -28,11 +31,13 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: "pg",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      host: "rbinar-rent-db.internal",
+      port: 5432,
+      user: "postgres",
+      password: "CMV7l6P5iZaL6hq",
+      database: "postgres",
     },
     pool: {
       min: 2,
