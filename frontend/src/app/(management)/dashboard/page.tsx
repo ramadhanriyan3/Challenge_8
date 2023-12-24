@@ -1,3 +1,4 @@
+"use client";
 import CmsTitle from "@/components/management/mainTitle";
 import CardContainer from "@/components/management/mainPage/cardContainer";
 import BreadCrumb from "@/components/management/breadCrumb";

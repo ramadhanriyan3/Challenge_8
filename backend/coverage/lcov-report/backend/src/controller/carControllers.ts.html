@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.21% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>127/132</span>
+                <span class='fraction'>125/130</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.21% </span>
+                <span class="strong">96.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>127/132</span>
+                <span class='fraction'>125/130</span>
             </div>
         
             
@@ -193,12 +193,7 @@
 <a name='L128'></a><a href='#L128'>128</a>
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -227,7 +222,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -327,14 +321,13 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express, { Request, Response } from "express";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from "express";
 import CarServices from "../services/car";
 import { v4 as uuidv4 } from "uuid";
-import LogServices from "../services/logHistory";
-const cloudinary = require("./../../cloudinary");
-const uploadOnMemory = require("./../middleware/uploadOnMemory");
 &nbsp;
-const app = express();
+import cloudinary from "./../../cloudinary";
 &nbsp;
 // get Cars
 const getCars = async (req: Request, res: Response) =&gt; {
@@ -362,7 +355,6 @@ const getCarById = async (req: Request, res: Response) =&gt; {
 &nbsp;
 // dellete car
 const deleteCar = async (req: Request, res: Response) =&gt; {
-  const getId = req.params.id;
   // const logData = {
   //   user_id: (req as any).user?.user_id,
   //   car_id: getId,
@@ -370,7 +362,7 @@ const deleteCar = async (req: Request, res: Response) =&gt; {
   //   description: `deleting car item with id ${getId}`,
   // };
   // const newLog = await new LogServices().postLog(logData);
-  const deleteData = await new CarServices().deleteCar(req);
+  await new CarServices().deleteCar(req);
   return res.status(202).json({
     status: "Item has been deleted",
   });
@@ -432,7 +424,7 @@ const updateCar = async (req: Request, res: Response) =&gt; {
     const rentPerDay = body.rentPerDay || undefined;
     const updateData = { model, rentPerDay, image };
     console.log(body);
-    const updateCar = await new CarServices().updateCar(req, updateData);
+    await new CarServices().updateCar(req, updateData);
     // const logData = {
     //   user_id: (req as any).user?.user_id,
     //   car_id: reqId,
@@ -446,7 +438,7 @@ const updateCar = async (req: Request, res: Response) =&gt; {
     const model = body.model<span class="branch-0 cbranch-no" title="branch not covered" > || undefined;</span>
     const rentPerDay = body.rentPerDay<span class="branch-0 cbranch-no" title="branch not covered" > || undefined;</span>
     const updateData = { model, rentPerDay };
-    const updateCar = await new CarServices().updateCar(req, updateData);
+    await new CarServices().updateCar(req, updateData);
     // const logData = {
     //   user_id: (req as any).user?.user_id,
     //   car_id: reqId,
@@ -458,7 +450,9 @@ const updateCar = async (req: Request, res: Response) =&gt; {
   }
 };
 &nbsp;
-module.exports = { getCars, getCarById, deleteCar, postCar, updateCar };
+const carController = { getCars, getCarById, deleteCar, postCar, updateCar };
+&nbsp;
+export default carController;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -466,7 +460,7 @@ module.exports = { getCars, getCarById, deleteCar, postCar, updateCar };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-22T15:59:51.326Z
+                at 2023-12-24T10:29:45.522Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
