@@ -1,4 +1,3 @@
-"use client";
 import PageWraper from "@/components/management/pageWrapper";
 import BreadCrumb from "@/components/management/breadCrumb";
 import FormPage from "@/components/management/formPage.tsx/formPage";

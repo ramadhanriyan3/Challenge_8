@@ -14,7 +14,7 @@ const cardsContainer = css`
   gap: 24px;
   max-width: 1101px;
 `;
-const url = "http://localhost:2700/cars";
+const url = "https://binar-rent-backend.fly.dev/cars";
 
 interface CardContainerProp {
   children: React.ReactNode;
