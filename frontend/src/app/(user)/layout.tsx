@@ -5,6 +5,7 @@ import MyNavbar from "@/components/navbar/myNavbar";
 import Footer from "@/components/footer/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyButton from "@/components/button/button";
+import AllNavbar from "@/components/navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,9 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <MyNavbar>
-          <MyButton value="Register" handlerOnClick={() => {}} />
-        </MyNavbar>
+        <AllNavbar />
         {children}
         <Footer />
       </body>
