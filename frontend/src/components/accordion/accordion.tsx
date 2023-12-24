@@ -8,7 +8,7 @@ function FaqAccordion() {
         <Col md={4}>
           <h3 className="heading-bold pb-2">Frequently Asked Question</h3>
           <p className="body-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            Lorem ipsum dolor sit amet, consecetur adipiscing elit
           </p>
         </Col>
         <Col md={7} className="offset-md-1">
